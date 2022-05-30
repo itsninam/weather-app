@@ -4,6 +4,7 @@ import axios from "axios";
 
 //Components
 import DisplayWeather from "./components/DisplayWeather";
+import SelectCity from "./components/SelectCity";
 
 //Styling
 import "./styling/App.scss";
@@ -12,32 +13,31 @@ function App() {
   //State to store api data
   const [weatherData, setWeatherData] = useState([]);
 
-  //State to store city name
-  const [cityName, setCityName] = useState("");
+  //store user input
+  const [userInput, setUserInput] = useState(55073);
 
   //Api call
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://dataservice.accuweather.com/forecasts/v1/daily/5day/49530_PC",
+      url: `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${userInput}`,
       params: {
         apikey: "5H4veaA1da3yOc31WURs55Qi3eZGpoQS",
       },
     })
       .then((response) => {
-        //add city name as a property to api object
-        response.data.cityName = "Waterloo";
         setWeatherData(response.data.DailyForecasts);
-        setCityName(response.data.cityName);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [userInput]);
 
   return (
     <div className="wrapper">
-      <h2>{cityName}</h2>
+      <header>
+        <SelectCity userInput={userInput} setUserInput={setUserInput} />
+      </header>
       <main>
         <DisplayWeather weatherData={weatherData} />
       </main>

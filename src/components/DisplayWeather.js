@@ -23,7 +23,7 @@ const DisplayWeather = ({ weatherData }) => {
             {/* if date matches today's date, display on top container, otherwise display all other data in bottom containers */}
             {moment(data.Date).format("dddd") === todaysDate ? (
               <div className="topContainer">
-                <h2>Today</h2>
+                <h1>Today</h1>
                 <p>
                   {toCelcius(data.Temperature.Maximum.Value).toFixed(0)}&#176;
                 </p>
@@ -31,10 +31,11 @@ const DisplayWeather = ({ weatherData }) => {
                   src={require(`../../assets/${data.Day.Icon}.png`)}
                   alt={data.Day.IconPhrase}
                 />
+                <p>{data.Day.IconPhrase}</p>
               </div>
             ) : (
               <div>
-                <h2>{moment(data.Date).format("dddd")}</h2>
+                <h2>{moment(data.Date).format("dddd").substring(0, 3)}</h2>
                 <p>
                   {toCelcius(data.Temperature.Maximum.Value).toFixed(0)}&#176;
                 </p>
