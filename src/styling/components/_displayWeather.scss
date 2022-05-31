@@ -1,0 +1,67 @@
+//Display weather partial
+
+.currentWeatherContainer {
+  width: 60%;
+  text-align: center;
+  border: 5px solid $borderColour;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: none;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  .infoContainer {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .textContainer {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin: 10px auto 0 auto;
+
+    .iconImg {
+      margin: 15px auto 15px auto;
+      height: 100px;
+    }
+  }
+
+  .weatherInfo {
+    .temperature {
+      font-size: 2.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .weatherDescription {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.weeklyWeatherContainer {
+  display: flex;
+  width: 60%;
+  text-align: center;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  .textContainer {
+    flex-grow: 1;
+    border: 5px solid $borderColour;
+    border-bottom: 5px solid $borderColour;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 15px;
+  }
+
+  img {
+    margin: 15px auto 15px auto;
+    height: 60px;
+  }
+
+  p {
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+}

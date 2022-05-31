@@ -6,8 +6,11 @@ html {
 
 body {
   font-size: 0.8rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: $primaryFont;
   font-weight: 200;
+  background-color: $secondaryColour;
+  height: 100%;
+  padding-bottom: 30px;
 }
 
 h1,
@@ -18,8 +21,12 @@ p {
   padding: 0;
 }
 
+h1,
 h2 {
   font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.temperature {
+  font-family: $secodaryFont;
 }

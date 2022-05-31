@@ -1,3 +1,8 @@
 @import "./baseStyles/setup";
+@import "./baseStyles/variables";
 @import "./baseStyles/baseStyles";
 @import "./baseStyles/typography";
+
+@import "./components/displayWeather";
+@import "./components/selectCity";
+@import "./components/mediaQueries";
