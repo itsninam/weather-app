@@ -31,8 +31,8 @@ function App() {
       method: "get",
       url: `//dataservice.accuweather.com/forecasts/v1/daily/5day/${userInput}`,
       params: {
-        apikey: "WPZup3rXogtlA3B8D8xJjISWfctKqy8G",
-        //alternative apiKey:  "D2wQBxm2pFPNlJqqZBNWgMC8KLFUHrh4",
+        // apikey: "WPZup3rXogtlA3B8D8xJjISWfctKqy8G",
+        apikey: "IzxkLz8lK4Tl0teaaj0vTTLaslGCGxI0",
       },
     })
       .then((response) => {

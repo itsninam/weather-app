@@ -5,12 +5,12 @@ import DateObject from "react-date-object";
 import moment from "moment";
 
 const DisplayWeatherData = ({ weatherData, errorMessage }) => {
-  //convert from farenheight to celcius
+  //Convert from farenheight to celcius
   const toCelcius = (farenheiht) => {
     return ((farenheiht - 32) * 5) / 9;
   };
 
-  //create variable to hold today's date and format it to display day of week
+  //Create variable to hold today's date and format it to display day of week
   const todaysDate = new DateObject().format("dddd");
 
   return (
@@ -21,47 +21,53 @@ const DisplayWeatherData = ({ weatherData, errorMessage }) => {
         </h2>
       ) : (
         <div className="wrapper">
-          <section className="wrapper currentWeatherContainer">
-            {/* if result matches today's date, display data, otherwise display nothing */}
-            {weatherData.map((data) => {
-              return moment(data.Date).format("dddd") === todaysDate ? (
-                <div className="infoContainer">
-                  <h1>Today</h1>
-                  <div className="textContainer">
-                    <img
-                      src={require(`../../assets/${data.Day.Icon}.png`)}
-                      alt={data.Day.IconPhrase}
-                      className="iconImg"
-                    />
-                    <div className="weatherInfo">
-                      <p className="temperature">
+          <section className="weatherCard">
+            {weatherData.map((data, index) => {
+              return (
+                <div key={index} className="weatherData">
+                  {/* if result matches today's date, display today's weather data, otherwise display weekly data */}
+                  {moment(data.Date).format("dddd") === todaysDate ? (
+                    <>
+                      <h1>Today</h1>
+                      <div className="flexContainer">
+                        <div className="imgContainer">
+                          <img
+                            src={require(`../../assets/${data.Day.Icon}.png`)}
+                            alt={data.Day.IconPhrase}
+                            className="currentWeatherImg"
+                          />
+                        </div>
+                        <div className="weatherInfo">
+                          <p className="currentTemperature">
+                            {toCelcius(data.Temperature.Maximum.Value).toFixed(
+                              0
+                            )}
+                            &#176;
+                          </p>
+                          <p className="weatherDescription">
+                            {data.Day.IconPhrase}
+                          </p>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <h2>
+                        {moment(data.Date).format("dddd").substring(0, 3)}
+                      </h2>
+                      <img
+                        src={require(`../../assets/${data.Day.Icon}.png`)}
+                        alt={data.Day.IconPhrase}
+                        className="weeklyImgs"
+                      />
+                      <p className="weeklyTemperatures">
                         {toCelcius(data.Temperature.Maximum.Value).toFixed(0)}
                         &#176;
                       </p>
-                      <p className="weatherDescription">
-                        {data.Day.IconPhrase}
-                      </p>
-                    </div>
-                  </div>
+                    </>
+                  )}
                 </div>
-              ) : null;
-            })}
-          </section>
-          <section className="wrapper weeklyWeatherContainer">
-            {/* if result does not match today's date, display data, otherwise display nothing */}
-            {weatherData.map((data) => {
-              return moment(data.Date).format("dddd") !== todaysDate ? (
-                <div className="textContainer">
-                  <h2>{moment(data.Date).format("dddd").substring(0, 3)}</h2>
-                  <img
-                    src={require(`../../assets/${data.Day.Icon}.png`)}
-                    alt={data.Day.IconPhrase}
-                  />
-                  <p className="temperature">
-                    {toCelcius(data.Temperature.Maximum.Value).toFixed(0)}&#176;
-                  </p>
-                </div>
-              ) : null;
+              );
             })}
           </section>
         </div>
