@@ -1,0 +1,10 @@
+// Loading weather data partial
+
+.loadingMessage,
+.errorMessage {
+  text-align: center;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

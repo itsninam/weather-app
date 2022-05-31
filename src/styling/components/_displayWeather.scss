@@ -1,7 +1,7 @@
 //Display weather partial
 
 .currentWeatherContainer {
-  width: 60%;
+  width: 65%;
   text-align: center;
   border: 5px solid $borderColour;
   border-top-left-radius: 8px;
@@ -42,7 +42,7 @@
 
 .weeklyWeatherContainer {
   display: flex;
-  width: 60%;
+  width: 65%;
   text-align: center;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 

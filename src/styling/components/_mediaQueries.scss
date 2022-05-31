@@ -1,6 +1,7 @@
 //Media Queries Partial
 
 @media (max-width: 1110px) {
+  //displayWeather.scss
   .currentWeatherContainer {
     width: 100%;
 
@@ -13,5 +14,12 @@
   .weeklyWeatherContainer {
     width: 100%;
     flex-direction: column;
+  }
+
+  //selectCity.scss
+  form {
+    label {
+      width: 100%;
+    }
   }
 }
