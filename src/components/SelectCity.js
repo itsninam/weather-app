@@ -8,6 +8,7 @@ const SelectCity = ({ setUserInput }) => {
           type="radio"
           id="waterloo"
           name="city"
+          //values obtained from api documentation
           value="55073"
           onChange={(event) => setUserInput(event.target.value)}
         />
@@ -16,6 +17,7 @@ const SelectCity = ({ setUserInput }) => {
           type="radio"
           id="toronto"
           name="city"
+          //values obtained from api documentation
           value="55488"
           onChange={(event) => setUserInput(event.target.value)}
         />
@@ -24,6 +26,7 @@ const SelectCity = ({ setUserInput }) => {
           type="radio"
           id="ottawa"
           name="city"
+          //values obtained from api documentation
           value="55487"
           onChange={(event) => setUserInput(event.target.value)}
         />
