@@ -14,41 +14,46 @@ const DisplayWeather = ({ weatherData }) => {
   const todaysDate = new DateObject().format("dddd");
 
   return (
-    <section className="wrapper">
-      {weatherData.map((data) => {
-        console.log(data);
-        return (
-          <div>
-            {/* convert date to day of week using .format() */}
-            {/* if date matches today's date, display on top container, otherwise display all other data in bottom containers */}
-            {moment(data.Date).format("dddd") === todaysDate ? (
-              <div className="topContainer">
-                <h1>Today</h1>
-                <p>
-                  {toCelcius(data.Temperature.Maximum.Value).toFixed(0)}&#176;
-                </p>
+    <div className="wrapper">
+      <section className="wrapper currentWeatherContainer">
+        {weatherData.map((data) => {
+          return moment(data.Date).format("dddd") === todaysDate ? (
+            <div className="infoContainer">
+              <h1>Today</h1>
+              <div className="textContainer">
                 <img
                   src={require(`../../assets/${data.Day.Icon}.png`)}
                   alt={data.Day.IconPhrase}
+                  className="iconImg"
                 />
-                <p>{data.Day.IconPhrase}</p>
+                <div className="weatherInfo">
+                  <p className="temperature">
+                    {toCelcius(data.Temperature.Maximum.Value).toFixed(0)}&#176;
+                  </p>
+                  <p className="weatherDescription">{data.Day.IconPhrase}</p>
+                </div>
               </div>
-            ) : (
-              <div>
-                <h2>{moment(data.Date).format("dddd").substring(0, 3)}</h2>
-                <p>
-                  {toCelcius(data.Temperature.Maximum.Value).toFixed(0)}&#176;
-                </p>
-                <img
-                  src={require(`../../assets/${data.Day.Icon}.png`)}
-                  alt={data.Day.IconPhrase}
-                />
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </section>
+            </div>
+          ) : null;
+        })}
+      </section>
+      <section className="wrapper weeklyWeatherContainer">
+        {weatherData.map((data) => {
+          return moment(data.Date).format("dddd") !== todaysDate ? (
+            <div className="textContainer">
+              <h2>{moment(data.Date).format("dddd").substring(0, 3)}</h2>
+              <img
+                src={require(`../../assets/${data.Day.Icon}.png`)}
+                alt={data.Day.IconPhrase}
+              />
+              <p className="temperature">
+                {toCelcius(data.Temperature.Maximum.Value).toFixed(0)}&#176;
+              </p>
+            </div>
+          ) : null;
+        })}
+      </section>
+    </div>
   );
 };
 

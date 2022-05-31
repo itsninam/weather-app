@@ -22,7 +22,8 @@ function App() {
       method: "get",
       url: `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${userInput}`,
       params: {
-        apikey: "5H4veaA1da3yOc31WURs55Qi3eZGpoQS",
+        // apikey: "D2wQBxm2pFPNlJqqZBNWgMC8KLFUHrh4",
+        apikey: "WPZup3rXogtlA3B8D8xJjISWfctKqy8G",
       },
     })
       .then((response) => {
@@ -34,14 +35,14 @@ function App() {
   }, [userInput]);
 
   return (
-    <div className="wrapper">
+    <>
       <header>
-        <SelectCity userInput={userInput} setUserInput={setUserInput} />
+        <SelectCity setUserInput={setUserInput} />
       </header>
       <main>
         <DisplayWeather weatherData={weatherData} />
       </main>
-    </div>
+    </>
   );
 }
 

@@ -1,0 +1,17 @@
+//Media Queries Partial
+
+@media (max-width: 1110px) {
+  .currentWeatherContainer {
+    width: 100%;
+
+    .textContainer {
+      width: 100%;
+      flex-direction: column;
+    }
+  }
+
+  .weeklyWeatherContainer {
+    width: 100%;
+    flex-direction: column;
+  }
+}

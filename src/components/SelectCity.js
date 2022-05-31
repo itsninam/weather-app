@@ -1,6 +1,6 @@
 //SelectCity.js
 
-const SelectCity = ({ userInput, setUserInput }) => {
+const SelectCity = ({ setUserInput }) => {
   return (
     <form action="" className="wrapper">
       <input
@@ -8,28 +8,25 @@ const SelectCity = ({ userInput, setUserInput }) => {
         id="waterloo"
         name="city"
         value="55073"
-        onValue={userInput}
         onChange={(event) => setUserInput(event.target.value)}
       />
-      <label for="waterloo">Waterloo</label>
+      <label htmlFor="waterloo">Waterloo</label>
       <input
         type="radio"
         id="toronto"
         name="city"
         value="55488"
-        onValue={userInput}
         onChange={(event) => setUserInput(event.target.value)}
       />
-      <label for="toronto">Toronto</label>
+      <label htmlFor="toronto">Toronto</label>
       <input
         type="radio"
-        id="bucharest"
+        id="ottawa"
         name="city"
-        value="287430"
-        onValue={userInput}
+        value="55487"
         onChange={(event) => setUserInput(event.target.value)}
       />
-      <label for="bucharest">Bucharest</label>
+      <label htmlFor="ottawa">Ottawa</label>
     </form>
   );
 };
