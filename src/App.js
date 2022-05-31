@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     axios({
       method: "get",
-      url: `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${userInput}`,
+      url: `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${userInput}`,
       params: {
         // apikey: "D2wQBxm2pFPNlJqqZBNWgMC8KLFUHrh4",
         apikey: "WPZup3rXogtlA3B8D8xJjISWfctKqy8G",
