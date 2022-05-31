@@ -19,13 +19,17 @@ form {
     cursor: pointer;
     text-transform: uppercase;
     display: inline-block;
-    padding: 15px;
-    width: 20%;
+    padding: 15px 20px;
+    transition: 0.3s;
 
     &:hover,
     &:focus {
       color: $accentColour;
-      font-weight: 800;
     }
   }
+}
+
+.highlighted {
+  color: $accentColour;
+  font-weight: 800;
 }

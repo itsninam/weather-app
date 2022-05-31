@@ -22,7 +22,7 @@ function App() {
   //State to store loading state for api data
   const [loading, setLoading] = useState(true);
 
-  //State to store error message in .catch()
+  //State to store error state in case of an api request error
   const [errorMessage, setErrorMessage] = useState(false);
 
   //Api call
@@ -41,7 +41,6 @@ function App() {
         setErrorMessage(false);
       })
       .catch((error) => {
-        console.log(error);
         setLoading(false);
         setErrorMessage(true);
       });
@@ -50,9 +49,10 @@ function App() {
   return (
     <>
       <header>
-        <SelectCity setUserInput={setUserInput} />
+        <SelectCity setUserInput={setUserInput} userInput={userInput} />
       </header>
       <main>
+        {/* If api data has not loaded, display loading component, otherwise display api data component */}
         {loading ? (
           <LoadingWeatherData />
         ) : (

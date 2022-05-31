@@ -15,8 +15,9 @@ const DisplayWeatherData = ({ weatherData, errorMessage }) => {
 
   return (
     <>
+      {/* If there is an api request error, display the error message, otherwise display the Api data */}
       {errorMessage ? (
-        <h2 className="errorMessage wrapper">
+        <h2 className="wrapper errorMessage">
           Sorry, something went wrong. Please try again later
         </h2>
       ) : (

@@ -10,6 +10,7 @@
   width: 60%;
   margin: 0 auto;
   background-color: $weatherCardColour;
+  transition: 0.5s;
 }
 
 .weatherData {
@@ -18,6 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: 0.5s;
 }
 
 .weatherData:nth-child(1) {
