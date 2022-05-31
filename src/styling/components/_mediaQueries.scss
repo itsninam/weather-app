@@ -2,17 +2,29 @@
 
 @media (max-width: 1110px) {
   //displayWeather.scss
-  .currentWeatherContainer {
+  .weatherCard {
     width: 100%;
-
-    .textContainer {
-      width: 100%;
-      flex-direction: column;
-    }
   }
 
-  .weeklyWeatherContainer {
-    width: 100%;
+  //selectCity.scss
+  form {
+    label {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  //displayWeather.scss
+  .weatherCard {
+    display: block;
+  }
+
+  .weatherData {
+    padding: 30px 0;
+  }
+
+  .flexContainer {
     flex-direction: column;
   }
 
