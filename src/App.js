@@ -31,7 +31,7 @@ function App() {
       method: "get",
       url: `//dataservice.accuweather.com/forecasts/v1/daily/5day/${userInput}`,
       params: {
-        apikey: "c357DZNnC42uvosHL0nU7nVtIxqN7Ab6",
+        apikey: "PRMC2eoDjxvpdxAAo3174F6fanUgiHWd",
       },
     })
       .then((response) => {
@@ -40,6 +40,7 @@ function App() {
         setErrorMessage(false);
       })
       .catch((error) => {
+        console.log(error);
         setLoading(false);
         setErrorMessage(true);
       });
