@@ -3,23 +3,26 @@
 .weatherCard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 270px 215px;
-  border: 3px solid white;
-  border-radius: 8px;
+  grid-template-rows: 350px 215px;
   box-shadow: 0px 10px 18px 5px rgba(0, 0, 0, 0.1);
   width: 60%;
   margin: 0 auto;
   background-color: $weatherCardColour;
   transition: 0.5s;
+  border-radius: 10px;
+  background-image: url("../../../assets/sunrise.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .weatherData {
-  border: 3px solid white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: 0.5s;
+  border: 1px solid #fff;
 }
 
 .weatherData:nth-child(1) {
@@ -46,15 +49,13 @@
   grid-column: 4;
 }
 
-.flexContainer {
-  width: 50%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
+.imgContainer {
+  width: 20%;
+  margin: 10px auto 10px auto;
 
-.currentWeatherImg {
-  height: 120px;
+  .currentWeatherImg {
+    width: 100%;
+  }
 }
 
 .weatherInfo {
@@ -68,6 +69,11 @@
 .weatherDescription {
   font-size: 1rem;
   margin: 10px auto 0 auto;
+  color: $accentColour;
+}
+
+.flexContainer {
+  text-align: center;
 }
 
 .weeklyImgs {

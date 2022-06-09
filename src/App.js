@@ -11,6 +11,7 @@ import SelectCity from "./components/SelectCity";
 //Styling
 import "./styling/App.scss";
 import LoadingWeatherData from "./components/LoadingWeatherData";
+import Footer from "./components/Footer";
 
 function App() {
   //State to store api data
@@ -62,6 +63,9 @@ function App() {
           />
         )}
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }

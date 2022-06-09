@@ -20,12 +20,12 @@
     display: block;
   }
 
-  .weatherData {
-    padding: 30px 0;
-  }
-
   .flexContainer {
-    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
   }
 
   //selectCity.scss
