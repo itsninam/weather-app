@@ -38,7 +38,7 @@ function App() {
       method: "get",
       url: `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${userCitySelection}`,
       params: {
-        apikey: "pco7zXpeobufrg89YtEIltWkIdIBQWEg",
+        apikey: "eSH49VzHNNm7CWvrsdr2zhrmfJmKYLwg",
       },
     })
       .then((response) => {
@@ -59,7 +59,7 @@ function App() {
       method: "get",
       url: `https://dataservice.accuweather.com/locations/v1/cities/search`,
       params: {
-        apikey: "pco7zXpeobufrg89YtEIltWkIdIBQWEg",
+        apikey: "eSH49VzHNNm7CWvrsdr2zhrmfJmKYLwg",
         q: userCityQuery,
       },
     })
