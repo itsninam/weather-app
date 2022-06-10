@@ -4,7 +4,11 @@
 import DateObject from "react-date-object";
 import moment from "moment";
 
-const DisplayWeatherData = ({ weatherData, errorMessage }) => {
+const DisplayWeatherData = ({
+  weatherData,
+  errorMessage,
+  displayUserInput,
+}) => {
   //Convert from farenheight to celcius
   const toCelcius = (farenheiht) => {
     return ((farenheiht - 32) * 5) / 9;
@@ -30,6 +34,7 @@ const DisplayWeatherData = ({ weatherData, errorMessage }) => {
                   {moment(data.Date).format("dddd") === todaysDate ? (
                     <>
                       <div className="weatherInfo">
+                        <h1>{displayUserInput}</h1>
                         <p className="currentTemperature">
                           {toCelcius(data.Temperature.Maximum.Value).toFixed(0)}
                           &#176;

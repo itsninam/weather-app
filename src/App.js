@@ -17,8 +17,14 @@ function App() {
   //State to store api data
   const [weatherData, setWeatherData] = useState([]);
 
-  //State to store user input
-  const [userInput, setUserInput] = useState(55073);
+  //State to store user input, default to waterloo
+  const [userCitySelection, setUserCitySelection] = useState(55073);
+
+  //state to capture user's input form search
+  const [userCityQuery, setUserCityQuery] = useState("");
+
+  //store user input to display on page
+  const [displayUserInput, setDisplayUserInput] = useState("waterloo");
 
   //State to store loading state for api data
   const [loading, setLoading] = useState(true);
@@ -30,9 +36,9 @@ function App() {
   useEffect(() => {
     axios({
       method: "get",
-      url: `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${userInput}`,
+      url: `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${userCitySelection}`,
       params: {
-        apikey: "zWpW4hytGMjHukMQKJiJ1lfEYP5pNgTI",
+        apikey: "pco7zXpeobufrg89YtEIltWkIdIBQWEg",
       },
     })
       .then((response) => {
@@ -45,12 +51,40 @@ function App() {
         setLoading(false);
         setErrorMessage(true);
       });
-  }, [userInput]);
+  }, [userCitySelection]);
+
+  //call api based on user's city query
+  const fetchData = () => {
+    axios({
+      method: "get",
+      url: `https://dataservice.accuweather.com/locations/v1/cities/search`,
+      params: {
+        apikey: "pco7zXpeobufrg89YtEIltWkIdIBQWEg",
+        q: userCityQuery,
+      },
+    })
+      .then((response) => {
+        setUserCitySelection(response.data[0].Key);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+        setErrorMessage(true);
+      });
+  };
 
   return (
     <>
       <header>
-        <SelectCity setUserInput={setUserInput} userInput={userInput} />
+        <SelectCity
+          userCitySelection={userCitySelection}
+          setUserCitySelection={setUserCitySelection}
+          userCityQuery={userCityQuery}
+          setUserCityQuery={setUserCityQuery}
+          fetchData={fetchData}
+          setDisplayUserInput={setDisplayUserInput}
+          displayUserInput={displayUserInput}
+        />
       </header>
       <main>
         {/* If api data has not loaded, display loading component, otherwise display api data component */}
@@ -60,6 +94,9 @@ function App() {
           <DisplayWeatherData
             weatherData={weatherData}
             errorMessage={errorMessage}
+            userCityQuery={userCityQuery}
+            userCitySelection={userCitySelection}
+            displayUserInput={displayUserInput}
           />
         )}
       </main>
