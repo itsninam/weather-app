@@ -1,6 +1,6 @@
 //Display Weather Partial
 
-.weatherCard {
+.morningCard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 350px 215px;
@@ -9,10 +9,44 @@
   margin: 0 auto;
   transition: 0.5s;
   border-radius: 10px;
-  background-image: url("../../../assets/morning2.jpg");
+  background-image: url("../../../assets/morning.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  position: relative;
+  z-index: 10;
+}
+
+.dayCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 350px 215px;
+  box-shadow: 0px 10px 18px 5px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  margin: 0 auto;
+  transition: 0.5s;
+  border-radius: 10px;
+  background-image: url("../../../assets/day.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 10;
+}
+
+.nightCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 350px 215px;
+  box-shadow: 0px 10px 18px 5px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  margin: 0 auto;
+  transition: 0.5s;
+  border-radius: 10px;
+  background-image: url("../../../assets/night.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
   position: relative;
   z-index: 10;
 }

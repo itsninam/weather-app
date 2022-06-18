@@ -3,6 +3,7 @@
 //Modules
 import DateObject from "react-date-object";
 import moment from "moment";
+import { useState, useEffect } from "react";
 
 const DisplayWeatherData = ({
   weatherData,
@@ -17,6 +18,23 @@ const DisplayWeatherData = ({
   //Create variable to hold today's date and format it to display day of week
   const todaysDate = new DateObject().format("dddd");
 
+  //create state to hold background image class
+  const [backgroundImage, setBackgroundImage] = useState("");
+
+  //create variable to hold current hour
+  const currentHour = new Date().getHours().toLocaleString();
+
+  //change weathercard background image based on time of day
+  useEffect(() => {
+    if (currentHour >= 20 || currentHour <= 6) {
+      setBackgroundImage("nightCard");
+    } else if (currentHour <= 12) {
+      setBackgroundImage("morningCard");
+    } else if (currentHour <= 17) {
+      setBackgroundImage("dayCard");
+    }
+  }, [currentHour]);
+
   return (
     <>
       {/* If there is an api request error, display the error message, otherwise display the Api data */}
@@ -26,7 +44,7 @@ const DisplayWeatherData = ({
         </h2>
       ) : (
         <div className="wrapper">
-          <section className="weatherCard">
+          <section className={backgroundImage}>
             {weatherData.map((data, index) => {
               return (
                 <div key={index} className="weatherData">

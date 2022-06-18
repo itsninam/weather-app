@@ -1,8 +1,11 @@
 //Media Queries Partial
 
 @media (max-width: 1110px) {
+
   //displayWeather.scss
-  .weatherCard {
+  .morningCard,
+  .dayCard,
+  .nightCard {
     width: 100%;
   }
 
@@ -15,8 +18,11 @@
 }
 
 @media (max-width: 600px) {
+
   //displayWeather.scss
-  .weatherCard {
+  .morningCard,
+  .dayCard,
+  .nightCard {
     display: block;
     background-position: bottom;
   }
