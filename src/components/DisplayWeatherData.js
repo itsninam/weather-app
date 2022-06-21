@@ -23,7 +23,6 @@ const DisplayWeatherData = ({
 
   //create variable to hold current hour
   const currentHour = new Date().getHours();
-  console.log(currentHour);
 
   //change weathercard background image based on time of day
   useEffect(() => {
@@ -31,7 +30,7 @@ const DisplayWeatherData = ({
       setBackgroundImage("nightCard");
     } else if (currentHour <= 12) {
       setBackgroundImage("morningCard");
-    } else if (currentHour <= 17) {
+    } else if (currentHour <= 19) {
       setBackgroundImage("dayCard");
     }
   }, [currentHour]);
