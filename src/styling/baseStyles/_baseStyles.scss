@@ -1,7 +1,25 @@
 // Base Styles Partial
-
 .wrapper {
   max-width: 1200px;
   width: 85%;
   margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+html {
+  position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+  color: $accentColour;
 }

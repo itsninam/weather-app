@@ -2,15 +2,17 @@
 
 html {
   font-size: 125%;
+  min-height: 100vh;
 }
 
 body {
+  height: auto;
   font-size: 0.8rem;
   font-family: $primaryFont;
   font-weight: 200;
   background-color: $secondaryColour;
-  height: 100%;
-  padding-bottom: 30px;
+  padding-bottom: 35px;
+  color: #fff;
 }
 
 h1,
@@ -25,11 +27,13 @@ h1 {
   font-size: 1.5rem;
   font-weight: 200;
   margin-bottom: 20px;
+  text-transform: lowercase;
 }
 
 h2 {
   font-size: 1.2rem;
-  font-weight: 200;
+  font-weight: 400;
+  flex-basis: 15%;
 }
 
 .currentTemperature,

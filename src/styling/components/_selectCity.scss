@@ -13,9 +13,9 @@ form {
     height: 0.2px;
   }
 
-  label {
+  .cityName {
     font-size: 1.5rem;
-    font-weight: 300;
+    font-weight: 400;
     cursor: pointer;
     text-transform: uppercase;
     display: inline-block;
@@ -27,9 +27,43 @@ form {
       color: $accentColour;
     }
   }
+
+  .highlighted {
+    color: $accentColour;
+    font-weight: 800;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 15px 20px;
+    cursor: pointer;
+  }
 }
 
-.highlighted {
+.cityLabel {
   color: $accentColour;
-  font-weight: 800;
+  font-size: 1rem;
+}
+
+.searchCityInput {
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 5px 10px 0 0;
+  box-shadow: 0px 8px 20px -3px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(218, 177, 136, 0.622);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0px 8px 20px -3px rgba(0, 0, 0, 0.1);
+  transition: 0.5s;
+
+  &:hover,
+  &:focus {
+    background-color: $accentColour;
+  }
 }
